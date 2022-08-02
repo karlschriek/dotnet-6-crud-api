@@ -19,4 +19,5 @@ public class DataContext : DbContext
     }
 
     public DbSet<User> Users { get; set; }
+    public DbSet<Contract> Contracts { get; set; }
 }

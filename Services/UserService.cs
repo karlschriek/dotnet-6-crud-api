@@ -10,8 +10,8 @@ public interface IUserService
 {
     IEnumerable<User> GetAll();
     User GetById(int id);
-    void Create(CreateRequest model);
-    void Update(int id, UpdateRequest model);
+    void Create(UserCreateRequest model);
+    void Update(int id, UserUpdateRequest model);
     void Delete(int id);
 }
 
@@ -38,7 +38,7 @@ public class UserService : IUserService
         return getUser(id);
     }
 
-    public void Create(CreateRequest model)
+    public void Create(UserCreateRequest model)
     {
         // validate
         if (_context.Users.Any(x => x.Email == model.Email))
@@ -55,7 +55,7 @@ public class UserService : IUserService
         _context.SaveChanges();
     }
 
-    public void Update(int id, UpdateRequest model)
+    public void Update(int id, UserUpdateRequest model)
     {
         var user = getUser(id);
 
